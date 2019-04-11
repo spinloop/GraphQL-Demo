@@ -38,3 +38,19 @@ const RootQuery = new GraphQLObjectType({
 module.exports = new GraphQLSchema({
   query: RootQuery
 })
+
+/*
+sample queries:
+
+```
+{
+	book(id: "1") {
+    name
+    genre
+    id
+  }
+}
+
+```
+
+*/
