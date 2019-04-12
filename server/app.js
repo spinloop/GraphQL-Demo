@@ -13,20 +13,6 @@ mongoose.connection.once('open', () => (
   console.log('connected to database')
 ))
 
-var authorSchema = new mongoose.Schema({
-  name: { type: String, required: true, maxlength: 50 },
-  age: { type: Number }
-});
-
-var bookSchema = new mongoose.Schema({
-  name: { type: String, required: true, maxlength: 50 },
-  genre: { type: String, required: true, maxlength: 50 },
-  authorId: { type: Number }
-})
-
-const Author = mongoose.model('Author', authorSchema);
-const Book = mongoose.model('Book', bookSchema);
-
 app.use('/graphql', graphqlHTTP({
   schema: schema,
   graphiql: true
