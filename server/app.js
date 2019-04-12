@@ -24,8 +24,6 @@ var bookSchema = new mongoose.Schema({
 const Author = mongoose.model('Author', authorSchema);
 const Book = mongoose.model('Book', bookSchema);
 
-// new Author({ name: 'name', age: 77 }).save()
-
 app.use('/graphql', graphqlHTTP({
   schema: schema,
   graphiql: true
