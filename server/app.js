@@ -1,8 +1,30 @@
 const express = require('express')
 const graphqlHTTP = require('express-graphql')
 const schema = require('./schema/schema')
+const mongoose = require('mongoose')
 
 const app = express()
+
+mongoose.connect('mongodb://localhost:27017/graphql-demo', { useNewUrlParser: true })
+
+mongoose.Promise = global.Promise;
+mongoose.connection.on('error', console.error.bind(console, 'MongoDB connection error:'));
+
+var authorSchema = new mongoose.Schema({
+  name: { type: String, required: true, maxlength: 50 },
+  age: { type: Number }
+});
+
+var bookSchema = new mongoose.Schema({
+  name: { type: String, required: true, maxlength: 50 },
+  genre: { type: String, required: true, maxlength: 50 },
+  authorId: { type: Number }
+})
+
+const Author = mongoose.model('Author', authorSchema);
+const Book = mongoose.model('Book', bookSchema);
+
+// new Author({ name: 'name', age: 77 }).save()
 
 app.use('/graphql', graphqlHTTP({
   schema: schema,
