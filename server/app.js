@@ -9,6 +9,9 @@ mongoose.connect('mongodb://localhost:27017/graphql-demo', { useNewUrlParser: tr
 
 mongoose.Promise = global.Promise;
 mongoose.connection.on('error', console.error.bind(console, 'MongoDB connection error:'));
+mongoose.connection.once('open', () => (
+  console.log('connected to database')
+))
 
 var authorSchema = new mongoose.Schema({
   name: { type: String, required: true, maxlength: 50 },
