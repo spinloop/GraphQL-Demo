@@ -90,4 +90,21 @@ mutation {
   }
 }
 
+mutation {
+	addBook(name: "Radical Action", genre: "Action", authorId: "5cb78e31e8a518770eb30f38") {
+    name
+    genre
+  }
+}
+
+// check mutations
+{
+  books {
+    name
+    author {
+      name
+    }
+  }
+}
+
 */
