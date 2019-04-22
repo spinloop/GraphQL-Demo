@@ -24,9 +24,17 @@ class AddBook extends Component {
     ))
   }
 
+  handleSubmit = (e) => {
+    e.preventDefault()
+    console.log(this.state)
+  }
+
   render() {
     return (
-      <form id="add-book">
+      <form
+        id="add-book"
+        onSubmit={this.handleSubmit}
+      >
         <div className="field">
           <label>Book name:</label>
           <input
