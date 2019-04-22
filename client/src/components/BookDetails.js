@@ -4,7 +4,7 @@ import { getBookQuery } from '../queries'
 
 class BookDetails extends Component {
   render() {
-    console.log(this.props.bookId)
+    console.log(this.props)
     return (
       <div id="book-details">
         <p>Book details here...</p>
@@ -13,4 +13,12 @@ class BookDetails extends Component {
   }
 }
 
-export default graphql(getBookQuery)(BookDetails)
+export default graphql(getBookQuery, {
+  options: (props) => {
+    return {
+      variables: {
+        id: props.bookId
+      }
+    }
+  }
+})(BookDetails)
