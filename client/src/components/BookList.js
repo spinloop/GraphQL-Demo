@@ -12,13 +12,23 @@ const getBooksQuery = gql`
 `
 
 class BookList extends Component {
-  render() {
-    console.log(this.props)
+  displayBooks = () => {
+    const { data } = this.props
 
+    if (data.loading === true) {
+      return (<div>Loading books...</div>)
+    }
+
+    return data.books.map((book, index) => {
+      return <li key={index}>{book.name}</li>
+    })
+  }
+
+  render() {
     return (
       <div>
         <ul id="book-list">
-          <li>Book name</li>
+          {this.displayBooks()}
         </ul>
       </div>
     );
