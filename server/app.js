@@ -9,7 +9,7 @@ const app = express()
 // allow cross-origin requests
 app.use(cors())
 
-mongoose.connect('mongodb://localhost:27017/graphql-demo', { useNewUrlParser: true })
+mongoose.connect('mongodb://db:27017/graphql-demo', { useNewUrlParser: true })
 
 mongoose.Promise = global.Promise;
 mongoose.connection.on('error', console.error.bind(console, 'MongoDB connection error:'));
