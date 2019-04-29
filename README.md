@@ -40,6 +40,6 @@ cd into /client and run `npm run start`
 2. Open the Docker app
   - make sure Docker is running.
 3. cd into root directory
-4. Run `docker-compose build` to build the Docker containers
-5. Run `docker-compose up` to run the app locally.
+4. Run `make build` to build the Docker containers
+5. Run `make start` or just `make` to run the app locally.
 6. Visit `http://localhost:3000/`
